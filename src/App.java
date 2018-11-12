@@ -52,7 +52,13 @@ public class App extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
+        IDrawer d = new CDrawer();
+        IMatrix matr = new MatrixN(3,3,d);
+        initMatrix.fill(matr,5,10);
+        matr.Draw();
+        System.out.println(" ");
+        matr = new RenumDecorator(matr);
+        matr.Draw();
     }
 }
 

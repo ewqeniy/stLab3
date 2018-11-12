@@ -10,6 +10,7 @@ public class RenumDecorator implements IMatrix {
     public RenumDecorator(IMatrix matrix) {
         this.matrix = matrix;
         SwapRow(matrix);
+        //SwapCol(matrix);
     }
 
     public void SwapRow(IMatrix matrix) {
@@ -20,7 +21,22 @@ public class RenumDecorator implements IMatrix {
         Collections.shuffle(list);
         for (int i = 0; i < list.size(); i++) System.out.println(list.get(i));
 
-        
+        IMatrix temp = matrix;
+        for (int i=0;i<getSRows();i++){
+            for (int j=0;j<getSCols();j++) {
+                matrix.set(i,j,temp.get(list.get(i),j));
+            }
+        }
+    }
+
+    public void SwapCol(IMatrix matrix){
+        /*Генерируем рандомный порядок для перестановки.*/
+        Random rnd = new Random();
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < matrix.getSCols(); i++) list.add(i);
+        Collections.shuffle(list);
+        for (int i = 0; i < list.size(); i++) System.out.println(list.get(i));
+
     }
 
     @Override
