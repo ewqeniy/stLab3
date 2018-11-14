@@ -26,5 +26,6 @@ public class CDrawer implements IDrawer {
             if (flag) System.out.format("%n-----------------------------------%n");
             else System.out.format("%n");
         }
+        System.out.println("");
     }
 }

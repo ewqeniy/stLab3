@@ -22,7 +22,7 @@ public class RenumDecorator implements IMatrix {
             swapedCol1 = rnd.nextInt(matrix.getSRows());
             swapedCol2 = rnd.nextInt(matrix.getSRows());
         }
-        System.out.println(swapedCol1 + " " + swapedCol2);
+        //System.out.println(swapedCol1 + " " + swapedCol2);
         for (int i=0;i<matrix.getSCols();i++){
             int temp = matrix.get(swapedCol1,i);
             matrix.set(swapedCol1,i,matrix.get(swapedCol2,i));
@@ -38,7 +38,7 @@ public class RenumDecorator implements IMatrix {
             swapedRow1 = rnd.nextInt(matrix.getSCols());
             swapedRow2 = rnd.nextInt(matrix.getSCols());
         }
-        System.out.println(swapedRow1 + " " + swapedRow2);
+        //System.out.println(swapedRow1 + " " + swapedRow2);
         for (int i=0;i<matrix.getSRows();i++){
             int temp = matrix.get(i,swapedRow1);
             matrix.set(i,swapedRow1,matrix.get(i,swapedRow2));
