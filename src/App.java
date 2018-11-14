@@ -53,7 +53,7 @@ public class App extends JFrame{
         frame.pack();
         frame.setVisible(true);
         IDrawer d = new CDrawer();
-        IMatrix matr = new MatrixN(3,3,d);
+        IMatrix matr = new MatrixN(3,4,d);
         initMatrix.fill(matr,5,10);
         matr.Draw();
         System.out.println(" ");

@@ -9,33 +9,41 @@ public class RenumDecorator implements IMatrix {
 
     public RenumDecorator(IMatrix matrix) {
         this.matrix = matrix;
+        SwapCol(matrix);
         SwapRow(matrix);
-        //SwapCol(matrix);
     }
 
-    public void SwapRow(IMatrix matrix) {
+    public void SwapCol(IMatrix matrix) {
         /*Генерируем рандомный порядок для перестановки.*/
         Random rnd = new Random();
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < matrix.getSRows(); i++) list.add(i);
-        Collections.shuffle(list);
-        for (int i = 0; i < list.size(); i++) System.out.println(list.get(i));
-
-        IMatrix temp = matrix;
-        for (int i=0;i<getSRows();i++){
-            for (int j=0;j<getSCols();j++) {
-                matrix.set(i,j,temp.get(list.get(i),j));
-            }
+        int swapedCol1=0;
+        int swapedCol2=0;
+        while (swapedCol1 == swapedCol2){
+            swapedCol1 = rnd.nextInt(matrix.getSRows());
+            swapedCol2 = rnd.nextInt(matrix.getSRows());
+        }
+        System.out.println(swapedCol1 + " " + swapedCol2);
+        for (int i=0;i<matrix.getSCols();i++){
+            int temp = matrix.get(swapedCol1,i);
+            matrix.set(swapedCol1,i,matrix.get(swapedCol2,i));
+            matrix.set(swapedCol2,i,temp);
         }
     }
 
-    public void SwapCol(IMatrix matrix){
-        /*Генерируем рандомный порядок для перестановки.*/
+    public void SwapRow(IMatrix matrix){
         Random rnd = new Random();
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < matrix.getSCols(); i++) list.add(i);
-        Collections.shuffle(list);
-        for (int i = 0; i < list.size(); i++) System.out.println(list.get(i));
+        int swapedRow1=0;
+        int swapedRow2=0;
+        while (swapedRow1 == swapedRow2){
+            swapedRow1 = rnd.nextInt(matrix.getSCols());
+            swapedRow2 = rnd.nextInt(matrix.getSCols());
+        }
+        System.out.println(swapedRow1 + " " + swapedRow2);
+        for (int i=0;i<matrix.getSRows();i++){
+            int temp = matrix.get(i,swapedRow1);
+            matrix.set(i,swapedRow1,matrix.get(i,swapedRow2));
+            matrix.set(i,swapedRow2,temp);
+        }
 
     }
 
