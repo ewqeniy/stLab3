@@ -30,7 +30,8 @@ public class App extends JFrame{
         buttonR.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                IDrawer id = new WDrawer();
+                repaint();
+                IDrawer id = new CDrawer();
                 IMatrix m = new MatrixS(4,4,id);
                 initMatrix.fill(m,10,30);
                 matrix = m;
@@ -42,6 +43,7 @@ public class App extends JFrame{
         buttonN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                repaint();
                 IDrawer id = new CDrawer();
                 IMatrix m = new MatrixN(5,5,id);
                 initMatrix.fill(m,14,25);
@@ -62,7 +64,9 @@ public class App extends JFrame{
         Undecor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //matrix = new RenumDecorator(matrix)
+                matrix = new RenumDecorator(matrix).getComponent();
+                matrix.Draw();
+                Undecor.setEnabled(false);
             }
         });
     }

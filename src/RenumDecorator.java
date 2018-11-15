@@ -68,6 +68,11 @@ public class RenumDecorator implements IMatrix {
     }
 
     @Override
+    public IMatrix getComponent() {
+        return this.matrix;
+    }
+
+    @Override
     public void Draw() {
         matrix.Draw();
     }

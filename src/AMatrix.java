@@ -30,5 +30,11 @@ public abstract class AMatrix implements IMatrix  {
     public void set(int row, int col, int value) {
         data[row].set(col,value);
     }
+
+    @Override
+    public IMatrix getComponent() {
+        return this;
+    }
+
     protected abstract IVector createVector(int size);
 }
